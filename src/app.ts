@@ -10,7 +10,9 @@ app.get("/", function (req, res) {
   res.send("Hello world!");
 });
 
-app.listen(3000);
+app.use("/users/login", function(req, res) {
+  res.send("This is a login page")
+})
 
 const server = http.createServer(app);
 

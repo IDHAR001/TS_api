@@ -5,12 +5,15 @@
   "main": "main.js",
   "scripts": {
     "build": "npx tsc",
+    "build:watch": "npx tsc --watch",
     "start": "node dist/main.js",
+    "start:watch": "rm -rf ./dist && concurrently \"npm run build\" \"ENV NODE_TLS_REJECT_UNAUTHORIZED=0 npx nodemon dist/main.js\"",
     "test": "npm run test"
   },
   "author": "Jacob",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^8.2.1",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "http": "^0.0.1-security",
